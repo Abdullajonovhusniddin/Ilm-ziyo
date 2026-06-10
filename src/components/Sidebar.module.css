@@ -1,0 +1,93 @@
+.sidebar {
+  width: 280px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.iconWrapper {
+  background: linear-gradient(135deg, var(--accent), var(--success));
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.logo h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.nav {
+  flex: 1;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.navItem:hover {
+  background: var(--background);
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+.navItem.active {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+}
+
+.navItem.active:hover {
+  transform: none;
+}
+
+.footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-md);
+  color: var(--danger);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.logoutBtn:hover {
+  background: #FEE2E2;
+}
