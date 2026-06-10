@@ -90,3 +90,60 @@
   padding: 2rem;
   overflow-y: auto;
 }
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius-md);
+}
+
+.menuBtn:hover {
+  background: var(--background);
+}
+
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  backdrop-filter: blur(2px);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+  
+  .menuBtn {
+    display: flex;
+  }
+  
+  .userInfo {
+    padding-left: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .userName, .userRole {
+    display: none;
+  }
+  
+  .content {
+    padding: 1rem;
+  }
+  
+  .mobileOverlay {
+    display: block;
+  }
+}

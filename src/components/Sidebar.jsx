@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
 import styles from './Sidebar.module.css';
 import { 
-  Home, ShoppingCart, BookOpen, Wrench, DollarSign, Gift, Users, Handshake, Settings, LogOut, Shield
+  Home, ShoppingCart, BookOpen, Wrench, DollarSign, Gift, Users, Handshake, Settings, LogOut, X
 } from 'lucide-react';
 
-const Sidebar = ({ onOpenManagement }) => {
+const Sidebar = ({ onOpenManagement, isOpen, onClose }) => {
   const { logout } = useAuth();
 
   const navItems = [
@@ -21,12 +21,12 @@ const Sidebar = ({ onOpenManagement }) => {
   ];
 
   return (
-    <aside className={styles.sidebar}>
+    <aside className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
       <div className={styles.logo}>
-        <div className={styles.iconWrapper}>
-          <Shield size={24} color="white" />
-        </div>
-        <h2>Qorakol</h2>
+        <img src="/logo.png" alt="Qorakol School" className={styles.logoImg} />
+        <button className={styles.mobileCloseBtn} onClick={onClose}>
+          <X size={24} />
+        </button>
       </div>
 
       <nav className={styles.nav}>

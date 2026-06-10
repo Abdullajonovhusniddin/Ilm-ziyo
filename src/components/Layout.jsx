@@ -4,21 +4,40 @@ import Sidebar from './Sidebar';
 import styles from './Layout.module.css';
 import { useTheme } from './ThemeProvider';
 import { useLanguage } from './LanguageProvider';
-import { Moon, Sun, Globe } from 'lucide-react';
+import { Moon, Sun, Globe, Menu } from 'lucide-react';
 import ManagementDrawer from './ManagementDrawer';
 
 const Layout = () => {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage } = useLanguage();
   const [managementOpen, setManagementOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <div className={styles.layout}>
-      <Sidebar onOpenManagement={() => setManagementOpen(true)} />
+      {isMobileMenuOpen && (
+        <div 
+          className={styles.mobileOverlay} 
+          onClick={() => setIsMobileMenuOpen(false)} 
+        />
+      )}
+      <Sidebar 
+        onOpenManagement={() => setManagementOpen(true)} 
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
       <ManagementDrawer isOpen={managementOpen} onClose={() => setManagementOpen(false)} />
       
       <main className={styles.main}>
         <div className={styles.header}>
+          <div className={styles.headerLeft}>
+            <button 
+              className={styles.menuBtn} 
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              <Menu size={24} />
+            </button>
+          </div>
           <div className={styles.actions}>
             <button onClick={toggleLanguage} className={styles.actionBtn}>
               <Globe size={20} />

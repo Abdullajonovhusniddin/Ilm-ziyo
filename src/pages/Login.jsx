@@ -26,9 +26,7 @@ const Login = () => {
     <div className={styles.container}>
       <div className={styles.loginCard}>
         <div className={styles.logoContainer}>
-          <div className={styles.iconWrapper}>
-            <Shield size={48} color="white" />
-          </div>
+          <img src="/logo.png" alt="Qorakol School" className={styles.logoImg} />
           <h1>Qorakol Admin</h1>
           <p>Tizimga kirish uchun ma'lumotlarni kiriting</p>
         </div>
