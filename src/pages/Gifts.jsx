@@ -15,7 +15,7 @@ const Gifts = () => {
           <h1 className={styles.pageTitle}>{t('Sovgʻalar')}</h1>
           <p className={styles.pageDescription}>O'quvchilar uchun yig'ilgan coinlarga sovg'alar.</p>
         </div>
-        <button 
+        <button
           onClick={() => setDrawerOpen(true)}
           style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.5rem', background: 'var(--accent)', color: 'white', borderRadius: 'var(--radius-md)', fontWeight: '600', border: 'none', cursor: 'pointer' }}
         >
@@ -23,27 +23,27 @@ const Gifts = () => {
           Sovg'a qo'shish
         </button>
       </div>
-      
+
       <div className={styles.cardContainer}>
         <div className={styles.card}>
-           <div className={styles.cardIcon}><Gift size={24} /></div>
-           <h3>MacBook</h3>
-           <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--warning)', marginTop: '0.5rem' }}>10,000 Coin</p>
+          <div className={styles.cardIcon}><Gift size={24} /></div>
+          <h3>MacBook</h3>
+          <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--warning)', marginTop: '0.5rem' }}>10,000 Coin</p>
         </div>
         <div className={styles.card}>
-           <div className={styles.cardIcon}><Gift size={24} /></div>
-           <h3>Qorakol Futbolkasi</h3>
-           <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--warning)', marginTop: '0.5rem' }}>500 Coin</p>
+          <div className={styles.cardIcon}><Gift size={24} /></div>
+          <h3>Futbolka maktabniki</h3>
+          <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--warning)', marginTop: '0.5rem' }}>500 Coin</p>
         </div>
         <div className={styles.card}>
-           <div className={styles.cardIcon}><Gift size={24} /></div>
-           <h3>O'quv qurollari to'plami</h3>
-           <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--warning)', marginTop: '0.5rem' }}>200 Coin</p>
+          <div className={styles.cardIcon}><Gift size={24} /></div>
+          <h3>O'quv qurollari to'plami</h3>
+          <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--warning)', marginTop: '0.5rem' }}>200 Coin</p>
         </div>
         <div className={styles.card}>
-           <div className={styles.cardIcon}><Gift size={24} /></div>
-           <h3>Maxsus Kitoblar</h3>
-           <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--warning)', marginTop: '0.5rem' }}>150 Coin</p>
+          <div className={styles.cardIcon}><Gift size={24} /></div>
+          <h3>Maxsus Kitoblar</h3>
+          <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--warning)', marginTop: '0.5rem' }}>150 Coin</p>
         </div>
       </div>
 
