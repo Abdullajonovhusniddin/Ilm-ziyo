@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../components/LanguageProvider';
 import styles from './Page.module.css';
 import { Gift, Plus } from 'lucide-react';
 import SlideDrawer from '../components/SlideDrawer';
 
 const Gifts = () => {
+  const { t } = useLanguage();
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <div>
       <div className={styles.pageHeader} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
-          <h1 className={styles.pageTitle}>Sovgʻalar</h1>
+          <h1 className={styles.pageTitle}>{t('Sovgʻalar')}</h1>
           <p className={styles.pageDescription}>O'quvchilar uchun yig'ilgan coinlarga sovg'alar.</p>
         </div>
         <button 

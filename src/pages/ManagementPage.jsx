@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styles from './Page.module.css';
 import { Plus, BookOpen, Home as HomeIcon, User, Shield, Trash2, GraduationCap } from 'lucide-react';
 import SlideDrawer from '../components/SlideDrawer';
+import { useLanguage } from '../components/LanguageProvider';
 
 // Asosiy mock ma'lumotlar (Refresh berganda o'chadi, sahifalar aro saqlanadi)
 const mockData = {
@@ -32,6 +33,7 @@ const ManagementPage = () => {
   const { section } = useParams();
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [, setForceUpdate] = useState(0); 
+  const { t } = useLanguage();
 
   const [name, setName] = useState('');
   const [extra1, setExtra1] = useState(''); 
@@ -99,8 +101,8 @@ const ManagementPage = () => {
     <div>
       <div className={styles.pageHeader} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
-          <h1 className={styles.pageTitle}>{title} boshqaruvi</h1>
-          <p className={styles.pageDescription}>Bu yerda {title} bo'yicha barcha ma'lumotlar va sozlamalar boshqariladi.</p>
+          <h1 className={styles.pageTitle}>{t(title)} {t('boshqaruvi')}</h1>
+          <p className={styles.pageDescription}>{t('Bu yerda')} {t(title)} {t('bo\'yicha barcha ma\'lumotlar va sozlamalar boshqariladi.')}</p>
         </div>
         
         {hasSpecificFeature && (
@@ -109,7 +111,7 @@ const ManagementPage = () => {
             style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.5rem', background: 'var(--accent)', color: 'white', borderRadius: 'var(--radius-md)', fontWeight: '600', border: 'none', cursor: 'pointer' }}
           >
             <Plus size={20} />
-            Yangi qo'shish
+            {t('Yangi qo\'shish')}
           </button>
         )}
       </div>
@@ -125,64 +127,64 @@ const ManagementPage = () => {
                 <h3>{item.name}</h3>
                 {isSinflar && (
                   <>
-                    <p style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>Davomiyligi: <strong style={{ color: 'var(--text-main)'}}>{item.duration}</strong></p>
-                    <p style={{ fontSize: '0.875rem' }}>Narxi: <strong style={{ color: 'var(--text-main)'}}>{item.price}</strong></p>
+                    <p style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>{t('Davomiyligi:')} <strong style={{ color: 'var(--text-main)'}}>{item.duration}</strong></p>
+                    <p style={{ fontSize: '0.875rem' }}>{t('Narxi:')} <strong style={{ color: 'var(--text-main)'}}>{item.price}</strong></p>
                   </>
                 )}
                 {isXonalar && (
                   <>
-                    <p style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>Sig'imi: <strong style={{ color: 'var(--text-main)'}}>{item.capacity} kishi</strong></p>
-                    <p style={{ fontSize: '0.875rem' }}>Turi: <strong style={{ color: 'var(--text-main)'}}>{item.type}</strong></p>
+                    <p style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>{t('Sig\'imi:')} <strong style={{ color: 'var(--text-main)'}}>{item.capacity} {t('kishi')}</strong></p>
+                    <p style={{ fontSize: '0.875rem' }}>{t('Turi:')} <strong style={{ color: 'var(--text-main)'}}>{item.type}</strong></p>
                   </>
                 )}
                 {(isTalabalar || isUstozlar || isAdminlar) && (
                   <>
-                     <p style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>{isTalabalar ? "Sinfi" : isUstozlar ? "Fani" : "Lavozimi"}: <strong style={{ color: 'var(--text-main)'}}>{item.extra1}</strong></p>
-                     <p style={{ fontSize: '0.875rem' }}>{isTalabalar ? "Holati" : "Telefon"}: <strong style={{ color: 'var(--text-main)'}}>{item.extra2}</strong></p>
+                     <p style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>{isTalabalar ? t('Sinfi:') : isUstozlar ? t('Fani:') : t('Lavozimi:')} <strong style={{ color: 'var(--text-main)'}}>{item.extra1}</strong></p>
+                     <p style={{ fontSize: '0.875rem' }}>{isTalabalar ? t('Holati:') : t('Telefon:')} <strong style={{ color: 'var(--text-main)'}}>{item.extra2}</strong></p>
                   </>
                 )}
-                <button onClick={() => handleDelete(item.id)} style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'none', border: 'none', color: '#ff4d4f', cursor: 'pointer', padding: '0.25rem' }} title="O'chirish">
+                <button onClick={() => handleDelete(item.id)} style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'none', border: 'none', color: '#ff4d4f', cursor: 'pointer', padding: '0.25rem' }} title={t("O'chirish")}>
                    <Trash2 size={20} />
                 </button>
               </div>
             ))
           ) : (
-            <p style={{ color: 'var(--text-muted)' }}>Hech qanday ma'lumot yo'q.</p>
+            <p style={{ color: 'var(--text-muted)' }}>{t('Hech qanday ma\'lumot yo\'q.')}</p>
           )
         ) : (
           <div className={styles.card}>
-             <h3>Ma'lumotlar bazasi</h3>
-             <p>Tez kunda ishga tushadi...</p>
+             <h3>{t('Ma\'lumotlar bazasi')}</h3>
+             <p>{t('Tez kunda ishga tushadi...')}</p>
           </div>
         )}
       </div>
 
       {hasSpecificFeature && (
-        <SlideDrawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} title={`Yangi qo'shish (${title})`}>
+        <SlideDrawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} title={`${t('Yangi qo\'shish (')} ${t(title)} ${t(')')}`}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <label style={{ fontSize: '0.875rem', fontWeight: '500', color: 'var(--secondary)' }}>
-                {isTalabalar || isUstozlar || isAdminlar ? "F.I.SH." : "Nomi"}
+                {isTalabalar || isUstozlar || isAdminlar ? t("F.I.SH.") : t("Nomi")}
               </label>
-              <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Kiriting..." style={{ padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)', background: 'var(--background)', color: 'var(--text-main)', outline: 'none' }} />
+              <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder={t("Kiriting...")} style={{ padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)', background: 'var(--background)', color: 'var(--text-main)', outline: 'none' }} />
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <label style={{ fontSize: '0.875rem', fontWeight: '500', color: 'var(--secondary)' }}>
-                {isSinflar ? "Davomiyligi (oy)" : isXonalar ? "Sig'imi (kishi)" : isTalabalar ? "Sinfi" : isUstozlar ? "Fani" : "Lavozimi"}
+                {isSinflar ? t("Davomiyligi (oy)") : isXonalar ? t("Sig'imi (kishi)") : isTalabalar ? t("Sinfi") : isUstozlar ? t("Fani") : t("Lavozimi")}
               </label>
-              <input value={extra1} onChange={(e) => setExtra1(e.target.value)} type="text" placeholder="Kiriting..." style={{ padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)', background: 'var(--background)', color: 'var(--text-main)', outline: 'none' }} />
+              <input value={extra1} onChange={(e) => setExtra1(e.target.value)} type="text" placeholder={t("Kiriting...")} style={{ padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)', background: 'var(--background)', color: 'var(--text-main)', outline: 'none' }} />
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <label style={{ fontSize: '0.875rem', fontWeight: '500', color: 'var(--secondary)' }}>
-                {isSinflar ? "Narxi (UZS)" : isXonalar ? "Xona turi" : isTalabalar ? "Holati" : "Telefon raqam"}
+                {isSinflar ? t("Narxi (UZS)") : isXonalar ? t("Xona turi") : isTalabalar ? t("Holati") : t("Telefon raqam")}
               </label>
-              <input value={extra2} onChange={(e) => setExtra2(e.target.value)} type="text" placeholder="Kiriting..." style={{ padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)', background: 'var(--background)', color: 'var(--text-main)', outline: 'none' }} />
+              <input value={extra2} onChange={(e) => setExtra2(e.target.value)} type="text" placeholder={t("Kiriting...")} style={{ padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)', background: 'var(--background)', color: 'var(--text-main)', outline: 'none' }} />
             </div>
             
             <button onClick={handleSave} style={{ padding: '0.75rem', background: 'var(--accent)', color: 'white', borderRadius: 'var(--radius-md)', fontWeight: '600', marginTop: '1rem', border: 'none', cursor: 'pointer' }}>
-              Saqlash
+              {t('Saqlash')}
             </button>
           </div>
         </SlideDrawer>

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { translations } from '../locales/translations';
 
 const LanguageContext = createContext();
 
@@ -15,8 +16,12 @@ export const LanguageProvider = ({ children }) => {
     setLanguage((prev) => (prev === 'uz' ? 'en' : 'uz'));
   };
 
+  const t = (key) => {
+    return translations[language][key] || key;
+  };
+
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );

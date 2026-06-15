@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../components/AuthProvider';
+import { useLanguage } from '../components/LanguageProvider';
 import { useNavigate } from 'react-router-dom';
 import { Shield } from 'lucide-react';
 import styles from './Login.module.css';
@@ -10,6 +11,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ const Login = () => {
     if (login(username, password)) {
       navigate('/');
     } else {
-      setError('Notog\'ri login yoki parol');
+      setError(t("Notog'ri login yoki parol"));
     }
   };
 
@@ -28,14 +30,14 @@ const Login = () => {
         <div className={styles.logoContainer}>
           <img src="/logo.png" alt="Qorakol School" className={styles.logoImg} />
           <h1>O 2 Zone school Super Admin</h1>
-          <p>Tizimga kirish uchun ma'lumotlarni kiriting</p>
+          <p>{t("Tizimga kirish uchun ma'lumotlarni kiriting")}</p>
         </div>
         
         <form onSubmit={handleSubmit} className={styles.form}>
           {error && <div className={styles.error}>{error}</div>}
           
           <div className={styles.inputGroup}>
-            <label htmlFor="username">Login</label>
+            <label htmlFor="username">{t('Login')}</label>
             <input
               type="text"
               id="username"
@@ -47,7 +49,7 @@ const Login = () => {
           </div>
           
           <div className={styles.inputGroup}>
-            <label htmlFor="password">Parol</label>
+            <label htmlFor="password">{t('Parol')}</label>
             <input
               type="password"
               id="password"
@@ -59,7 +61,7 @@ const Login = () => {
           </div>
           
           <button type="submit" className={styles.submitBtn}>
-            Kirish
+            {t('Kirish')}
           </button>
         </form>
       </div>

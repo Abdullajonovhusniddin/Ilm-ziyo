@@ -90,3 +90,10 @@
 .navItem:hover .icon {
   color: var(--accent);
 }
+
+@media (max-width: 768px) {
+  .drawer {
+    left: 0;
+    width: 100%;
+  }
+}

@@ -9,7 +9,7 @@ import ManagementDrawer from './ManagementDrawer';
 
 const Layout = () => {
   const { theme, toggleTheme } = useTheme();
-  const { language, toggleLanguage } = useLanguage();
+  const { language, toggleLanguage, t } = useLanguage();
   const [managementOpen, setManagementOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -51,7 +51,7 @@ const Layout = () => {
             <div className={styles.avatar}>QA</div>
             <div>
               <p className={styles.userName}>Super Admin</p>
-              <p className={styles.userRole}>Boshqaruvchi</p>
+              <p className={styles.userRole}>{t('Boshqaruvchi')}</p>
             </div>
           </div>
         </div>

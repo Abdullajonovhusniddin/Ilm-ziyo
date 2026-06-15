@@ -1,12 +1,14 @@
 import React from 'react';
+import { useLanguage } from '../components/LanguageProvider';
 import styles from './Page.module.css';
 import { Handshake, Link, Globe, Star } from 'lucide-react';
 
 const Partners = () => {
+  const { t } = useLanguage();
   return (
     <div>
       <div className={styles.pageHeader}>
-        <h1 className={styles.pageTitle}>Hamkorlarimiz</h1>
+        <h1 className={styles.pageTitle}>{t('Hamkorlarimiz')}</h1>
         <p className={styles.pageDescription}>Maktab bilan rasmiy ishlaydigan barcha korxona va tizimlar.</p>
       </div>
       
