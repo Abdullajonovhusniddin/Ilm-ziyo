@@ -13,6 +13,7 @@ import Finance from './pages/Finance';
 import Gifts from './pages/Gifts';
 import HR from './pages/HR';
 import Partners from './pages/Partners';
+import Teachers from './pages/Teachers';
 
 import ManagementPage from './pages/ManagementPage';
 
@@ -41,6 +42,7 @@ const AppRoutes = () => {
         <Route path="gifts" element={<Gifts />} />
         <Route path="hr" element={<HR />} />
         <Route path="partners" element={<Partners />} />
+        <Route path="teachers" element={<Teachers />} />
         <Route path="management/:section" element={<ManagementPage />} />
       </Route>
     </Routes>

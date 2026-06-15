@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
 import styles from './Sidebar.module.css';
 import { 
-  Home, ShoppingCart, BookOpen, Wrench, DollarSign, Gift, Users, Handshake, Settings, LogOut, X
+  Home, ShoppingCart, BookOpen, Wrench, DollarSign, Gift, Users, Handshake, Settings, LogOut, X, GraduationCap
 } from 'lucide-react';
 
 const Sidebar = ({ onOpenManagement, isOpen, onClose }) => {
@@ -18,6 +18,7 @@ const Sidebar = ({ onOpenManagement, isOpen, onClose }) => {
     { path: '/gifts', label: 'Sovgʻalar', icon: <Gift size={20} /> },
     { path: '/hr', label: 'HR boʻlimi', icon: <Users size={20} /> },
     { path: '/partners', label: 'Hamkorlarimiz', icon: <Handshake size={20} /> },
+    { path: '/teachers', label: 'Ustozlar', icon: <GraduationCap size={20} /> },
   ];
 
   return (

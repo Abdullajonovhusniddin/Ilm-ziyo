@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ManagementDrawer.module.css';
-import { BookOpen, Home as HomeIcon, User, HelpCircle, Shield, Coins, Mail, CheckSquare } from 'lucide-react';
+import { BookOpen, Home as HomeIcon, User, HelpCircle, Shield, Coins, Mail, CheckSquare, GraduationCap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const ManagementDrawer = ({ isOpen, onClose }) => {
@@ -10,6 +10,7 @@ const ManagementDrawer = ({ isOpen, onClose }) => {
     { label: 'Sinflar', path: 'sinflar', icon: <BookOpen size={20} /> },
     { label: 'Xonalar', path: 'xonalar', icon: <HomeIcon size={20} /> },
     { label: 'Talabalar', path: 'talabalar', icon: <User size={20} /> },
+    { label: 'Ustozlar', path: 'ustozlar', icon: <GraduationCap size={20} /> },
     { label: 'Adminlar', path: 'adminlar', icon: <Shield size={20} /> },
     { label: 'Sabablar', path: 'sabablar', icon: <HelpCircle size={20} /> },
     { label: 'Rollar', path: 'rollar', icon: <Shield size={20} /> },

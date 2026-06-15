@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   });
 
   const login = (username, password) => {
-    if (username === 'qorakol' && password === '12345') {
+    if (username === 'Muxaye' && password === '12345') {
       const userData = { username, role: 'super_admin' };
       setUser(userData);
       localStorage.setItem('qorakol_user', JSON.stringify(userData));

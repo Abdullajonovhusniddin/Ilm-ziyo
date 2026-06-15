@@ -25,7 +25,7 @@ const Gifts = () => {
       <div className={styles.cardContainer}>
         <div className={styles.card}>
            <div className={styles.cardIcon}><Gift size={24} /></div>
-           <h3>Noutbuk (MacBook)</h3>
+           <h3>MacBook</h3>
            <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--warning)', marginTop: '0.5rem' }}>10,000 Coin</p>
         </div>
         <div className={styles.card}>

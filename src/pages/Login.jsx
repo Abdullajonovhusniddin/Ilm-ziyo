@@ -5,7 +5,7 @@ import { Shield } from 'lucide-react';
 import styles from './Login.module.css';
 
 const Login = () => {
-  const [username, setUsername] = useState('qorakol');
+  const [username, setUsername] = useState('Muxaye');
   const [password, setPassword] = useState('12345');
   const [error, setError] = useState('');
   const { login } = useAuth();
@@ -27,7 +27,7 @@ const Login = () => {
       <div className={styles.loginCard}>
         <div className={styles.logoContainer}>
           <img src="/logo.png" alt="Qorakol School" className={styles.logoImg} />
-          <h1>Qorakol Admin</h1>
+          <h1>O 2 Zone school Super Admin</h1>
           <p>Tizimga kirish uchun ma'lumotlarni kiriting</p>
         </div>
         
@@ -41,7 +41,7 @@ const Login = () => {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="qorakol"
+              placeholder="Muxaye"
               required
             />
           </div>
